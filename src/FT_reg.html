@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register to family tree!</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+   .tryellow{
+   background:white;
+   }
+   
+   .trgreen{
+   background:#dee3e0;
+   }
+</style>
+
+<script>
+function regform_check() {
+  //변수에 담아주기
+  var firstName = document.getElementById("firstName");
+  var familyName = document.getElementById("familyName");
+  var email_id = document.getElementById("email_id");
+  var email_add = document.getElementById("email_add")
+  var pwd = document.getElementById("pwd");
+  var repwd = document.getElementById("repwd");
+  var male = document.getElementById("male");
+  var female = document.getElementById("female");
+  var gender = document.querySelector('input[name="gender"]:checked');
+  var country = document.getElementById("countries");
+  var city = document.getElementById("cities");
+  var town = document.getElementById("towms");
+  var agree = document.querySelector('input[name="agree"]:checked');
+  
+  if (firstName.value == ""){ //해당 입력값이 없을 경우 같은말: if(!uid.value)
+	  alert("Enter name!");
+	  firstName.focus();
+	  return false; };
+	  
+  if (familyName.value == ""){ //해당 입력값이 없을 경우 같은말: if(!uid.value)
+	 alert("Enter family name!");
+	 familName.focus();
+	 return false; };
+	 
+  if ((email_id.value == "")||(email_add.value =="")) {
+     alert("Enter your email ID and domain address!");
+     email_id.focus();
+     return false;
+     }	 
+
+  if (pwd.value == "") {
+	 alert("Enter password!");
+	 pwd.focus();
+	 return false; };
+  
+  //비밀번호 영문자+숫자+특수조합(8~25자리 입력) 정규식
+  var pwdCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+
+  if (!pwdCheck.test(pwd.value)) {
+	alert("Passowrd should include at least a letter, a number, a special character, and be between 8~25 characters long.");
+	pwd.focus();
+    return false; };
+
+    if (repwd.value !== pwd.value) {
+    alert("Passwords don't match.");
+    repwd.focus();
+    return false; };
+
+  if (!female.checked && !male.checked) { //둘다 미체크시
+    alert("Check your gender!");
+    female.focus();
+    return false; };
+
+  if (!agree.checked) { //체크박스 미체크시
+    alert("You should agree with terms!");
+    agree.focus();
+    return false;
+  }
+  
+  document.reg_form.requestSubmit();  
+
+}
+
+//이메일 옵션 선택후 주소 자동 완성
+function change_email() {
+  var email_add = document.getElementById("email_add");
+  var email_sel = document.getElementById("email_sel");
+		    //지금 골라진 옵션의 순서와 값 구하기
+  var idx = email_sel.options.selectedIndex;
+  var val = email_sel.options[idx].value;
+
+  email_add.value = val;	
+}
+
+</script>
+
+</head>
+
+
+<body>
+   <table style="width:70%; height:200px; background-color:#f5f7f7; margin:auto">
+   <tr>&nbsp;</tr>
+   <tr><td>
+   <div style="font-family:Arial; font-weight:bold; font-size:60px; color:#03b6fc;">familytree</div>
+   <div style="font-family:Arial; font-size:30px">Easily become a member right now.<br>
+       Search your relatives and connect.<br>Contribute to your hometown community. </div>
+   </td></tr></table>
+<p/><p/>
+
+<fieldset style="padding:5px; border:1px solid #4238ca; margin:auto; width:70%">
+<legend style="font-size:20px"><b>Registry form</b></legend>
+<form name="reg_form" action="reg_ok.jsp" method="post" accept-charset="utf-8">
+  
+  <table width=100%>
+  
+  <tr class="trgreen">
+    <td>Name</td> <td><input type="text" name="firstName" id="firstName"></td>
+    <td>Family Name</td> <td><input type="text" name="familyName" id="familyName"></td>
+  </tr>  
+  <tr class="tryellow">
+    <td>Email address</td><td><input type="text" name="email_id" id="email_id"></td>
+    <td>@&nbsp;<select name="email_sel" id="email_sel" onchange="change_email();">
+     
+      <option value=""><i>Direct input</i></option>
+      <option value="naver.com">naver</option>
+      <option value="gmail.com">gmail</option>
+      <option value="nate.com">nate</option>
+    </select></td>
+    <td><input type="text" name="email_add" id="email_add"></td>
+  </tr>
+  <tr class="trgreen">
+  <td>Password</td><td><input type="password" name="pwd" id="pwd" placeholder="Letter+Number+Special character"></td>
+  <td>Reenter password</td><td><input type="password" name="repwd" id="repwd"></td></tr>
+  <tr class="tryellow">
+    <td>
+      <!--생년월일 예전에는 option 형식이었지만 현재는 text type으로 변경 추세-->
+      Birthdate</td><td><input type="text" name="yy" id="yy" placeholder="4 digits" maxlength="4"></td>
+      <td><select name="mm" id="mm">
+        <option value="">Month</option>
+        <option value="01">1</option>
+        <option value="02">2</option>
+        <option value="03">3</option>
+        <option value="04">4</option>
+        <option value="05">5</option>
+        <option value="06">6</option>
+        <option value="07">7</option>
+        <option value="08">8</option>
+        <option value="09">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select></td>
+    </td>
+    <td><input type="text" name="dd" id="dd" placeholder="Day" maxlength="2">
+  </td></tr>
+  <tr class="trgreen">
+     <td>Gender</td><td><input type="radio" value="M" name="gender" id="male" checked>Male
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="radio" value="F" name="gender" id="female">Female</td>
+
+     <td><label>Select country</label></td>
+     <td><select name="countries" id="countries" height="20px" margin="auto" margin-left="5px">
+        <option value="Turkey">Turkey</option>
+        <option value="Korea">Korea</option> 
+        <option value="Japan">v</option> 
+        <option value="USA">USA</option> 
+        <option value="Germany">Germany</option>        
+        </select>
+     </td>
+  </tr>
+  <tr class="tryellow">
+     <td><label>Select city</label></td>
+     <td><select name="cities" id="cities" height="20px" margin="auto" margin-left="5px">
+         <option value="Aksaray">Aksaray</option>
+         <option value="Istanbul">Istanbul</option>
+         <option value="Ankara">Ankara</option>
+         <option value="Konya">Konya</option>
+         <option value="Izmir">Izmir</option>           
+         </select>
+     </td>
+     
+     <td><label>Select town/village</label></td>
+     <td><select name="towns" id="towns" height="20px" margin="auto" margin-left="5px">
+        <option value="Kocpinar">Kocpinar</option>
+        <option value="Helvadere">Helvadere</option>
+        <option value="Kilicarslan">Kilicarslan</option>
+        <option value="Elmacik">Elmacik</option>
+        <option value="Saglik">Saglik</option>           
+        </select>
+     </td>
+  </tr>
+
+  <tr class="trgreen">
+    <td>Agree terms?</td><td><input type="checkbox" value="Yes" name="agree" id="agree">Yes!</td>
+    <td><button type="button" onclick="history.back()">Former page</button></td>
+    <!-- (window삭제).history.back 뒤로가기/history.forward 앞으로가기-->
+    
+    <td>
+       <button type="button" onclick="regform_check();">Register</button>
+       <button type="button" onclick="location.href='FT_profile.html';">My Profile</button>    
+    </td>
+    <!-- 입력된 경우에 따라서 다르게 액션되면 button으로, 입력 값 상관 없이 무조건 보내기면 submit -->
+    <!-- type을 submit으로 하여 전송하기를 하지말고, script가서 함수를 만들고 전송하기를 함 button onclick으로 함수를 불러옴 함수안에 문제가 있는 경우 return false;-->
+  </tr>
+  
+  </table>
+  
+</form>
+</fieldset>
+</body>
+
+<footer><a href="https://www.apple.com/legal/internet-services/terms/site.html"><p style="text-align:center">&lt;&lt;Terms&gt;&gt;</a></footer>
+</html>
+

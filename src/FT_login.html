@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Family Tree Login</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+   
+function loginCheck() {
+	  var uid = document.getElementById("uid");
+	  var pwd = document.getElementById("pwd");
+  
+
+	  if ((uid.value == "")||(pwd.value =="")) {
+	     alert("Enter your member ID and password!");
+	     uid.focus();
+	     return false;}
+	  
+	  if (uid.value !== "alicanlier@gmail.com") {
+		 alert("Unregistered member ID!");
+		 uid.focus();
+		 return false; };
+
+	  if (pwd.value !== "12#4Asdf") {
+		 alert("Password doesn't match!");
+		 pwd.focus();
+		 return false; };
+
+	  document.login.requestSubmit();  
+	}
+   
+   
+</script>
+
+<style>
+  .loginBox{
+     border-radius: 5px;
+     border: groove gray 1px;
+     font-size: 12px;
+     height:24px;
+     margin:10px 5px 0 6px;
+     width: 90%;
+     height:24px;
+  }
+
+  .loginButton{
+     border: hidden;
+     border-radius: 5px;
+     background: #03b6fc;
+     font-size: 16px;
+     font-weight: bold;
+     height:30px;
+     margin:10px 5px 0 6px;
+     width: 93%;
+     cursor: pointer;
+  }
+  .regButton{
+     border: hidden;
+     border-radius: 5px;
+     background: #5ed415;
+     font-size: 16px;
+     font-weight: bold;
+     color:white;
+     height:30px;
+     width: 70%;
+     cursor: pointer;
+  }
+  .imgCSS{
+     display: block;
+     margin:auto;
+     width: 80%;
+     height:350px;
+  }
+  .searchLine{
+     background: #d8d9b4; 
+     margin:0;
+     text-align:center;
+     height:100%;
+     padding:5px;
+  }
+</style>
+</head>
+<body>
+   <!-- Top Menu -->
+   <table style="width:80%; margin:auto; background-color:#f5f7f7">
+      <tr></p></tr>
+      <tr><img class="imgCSS" src="HumanConnect.jpg" alt="Welcome!" title="Connecting family members"></tr>
+      
+      <!-- Search line START-->
+      <tr>
+      <td colspan="4">
+      <div class="searchLine">
+         <form name="search" action="search.jsp" method="get" accept-charset="utf-8" >
+            <p1>Search as nonmember</p1>
+            <input type="text" name="searchName" id="searchName" placeholder="Enter full name" 
+            margin="auto" height="20px" size="10">
+            <label for="countries" margin-left="5px">| Select country</label>
+            <select name="countries" id="countries" height="20px" margin="auto" margin-left="5px">
+               <script>
+                  countries=["Turkey", "Korea", "Japan", "USA", "Germany"];
+                  countriesSelect=new Array();
+                  for(i=0;i<countries.length;i++) {
+                	  countriesSelect[i]="<option value="+i+">"+countries[i]+"</option><br>";
+                  }  
+                  document.getElementById("countries").innerHTML = countriesSelect;
+               </script>                 
+            </select>
+            
+            <label for="cities" margin-left="5px">| Select city</label>
+            <select name="cities" id="cities" height="20px" margin="auto" margin-left="5px">
+               <script>
+                  cities=["Aksaray", "Nigde", "Ankara", "Konya", "Istanbul"];
+                  citiesSelect=new Array();
+                  for(i=0;i<cities.length;i++) {
+                      citiesSelect[i]="<option value="+i+">"+cities[i]+"</option><br>";
+                  }  
+                  document.getElementById("cities").innerHTML = citiesSelect;
+               </script>                 
+            </select>          
+
+            <input type="submit" value="Search" height="20px" margin="auto" margin-left="5px" height="25px" title="Gives number of persons">
+         </form>
+      </div>
+      </td>
+      </tr>
+      <!-- Search line END-->
+
+      <tr style="width:70%; height:20px">
+         <td></td>
+      </tr>
+      
+      <!-- Introduction & login line START-->
+      <tr style="width:70%; height:200px">
+         <td style="width:15%"></td>
+         <td>
+            <div style="font-family:Arial; font-weight:bold; font-size:60px; color:#03b6fc;">familytree</div>
+            <div style="font-family:Arial; font-size:30px">Familytree shows you family members
+            of people. Higher approval rank broadens access. Privacy is adjustable. </div>
+         </td>
+         <td width="30%">
+         <div style="border: hidden gray; border-radius: 5px; background:white; text-align:center">
+            <form name="login" action="FT_main.html" method="get" accept-charset="utf-8" >
+               <input class="loginBox" type="text" name="username" id="uid" placeholder="Email address"><br>
+               <input class="loginBox" type="password" name="password" id="pwd" placeholder="Password"><br>
+               <button class="loginButton" type="button" onclick="loginCheck();">Login</button><br>
+               
+               <!-- Forgot password? link -->
+               <a href="" onclick="searchPWD()"><p style="text-align:center; margin:5px auto 5px">Forgot password?</p></a><br>
+               <script>
+                  function searchPWD() {
+                     email = prompt("Enter your email address. Your password will be sent to you.", "ID@domain.xxx");
+                  }
+               </script>
+               <!-- Register (Become a member) button -->
+               <button class="regButton" type="button" onclick="location.href='FT_reg.html';">
+               <p style="text-align:center; margin:auto;">Register</p></button><br><br>
+             
+            </form>
+         </div>
+         </td>
+         <td style="width:15%"></td>
+      </tr>
+      <!-- Introduction & login line END-->
+      <tr style="width:70%; height:20px">
+         <td></td>
+      </tr>
+   
+   
+   </table>
+
+
+</body>
+</html>

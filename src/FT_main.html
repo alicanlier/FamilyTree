@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  margin: auto;
+  text-align:center;
+  width:80%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  margin: auto;
+  text-decoration: none;
+  font-size: 17px;
+  width:20%;
+      
+}
+
+.topnav a:hover {
+  background-color: #04AA6D;
+  color: white;
+  width: 25%;
+  padding:14px 16px;
+  margin:0;
+}
+
+</style>
+</head>
+<body>
+</p>
+<div class="topnav">
+  <a href="FT_profile.html" target="iframe1" onclick="changeOverLine(this)">My Profile</a>
+  <a href="FT_search.html" target="iframe1" onclick="changeOverLine(this)">Search&Connect</a>
+  <a href="FT_approval.html" target="iframe1" onclick="changeOverLine(this)">Approval</a>
+  <a href="FT_community.html" target="iframe1" onclick="changeOverLine(this)">Community</a>
+  <a href="FAQ.html" target="iframe1" onclick="changeOverLine(this)">FAQ</a>
+</div>
+
+<script>
+   function changeOverLine(obj) {
+	   document.getElementById("overLine").innerHTML = obj.innerHTML;
+   } 
+</script>
+
+<div style="padding-left:16px; width:80%; margin:auto">
+  <h2>How to connect to your relatives?</h2>
+  <p>Simply search existing members or assign your relatives as you wish. Other members may vote the accuracy of your info. 
+  You also need to get approved to use more functions such as seeing details of other members or searching people in other places.</p>
+</div>
+
+   <div style="background-color: #04AA6D; color:white; width:80%; padding: 10px 0; text-align:center; margin:auto" id="overLine">&nbsp;</div>
+    <p/>
+    <div style="background-color:#98e7f5; width:80%; margin:0 auto 5px;"><iframe src="FT_profile.html" margin="auto" width="100%" 
+    height="600px" background-color="yellow" name="iframe1" frameborder="none" scrolling="yes"></iframe></div>
+    <div style="background-color:#04AA6D; width:80%; text-align:center; margin:auto">Familytree Co., Ltd &reg;</div>
+
+</body>
+</html>

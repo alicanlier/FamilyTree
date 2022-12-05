@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Profile</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript" src="FT_database.js"></script>
+<link rel="stylesheet" href="FT_profile.css">
+
+
+<script>
+   function uploadPhoto (event,id) {
+	  var image = document.getElementById(id);
+	  image.src = URL.createObjectURL(event.target.files[0]);
+	};
+</script>
+
+</head>
+
+<body onload="myMember(1);">
+
+<div class="profile">
+  <span style="text-align:center;">
+  <h4 id="member_top">Raul Lee (41)<br> Daejeon/Korea</h4>
+  <img src="AvatarMale.png" id="PP" onclick="document.getElementById('file').click();" 
+  title="Click to upload&#10;new photo"/>
+  <input id="file" type="file" onchange="uploadPhoto(event,'PP')" style="display: none;"/>
+  </span>
+  
+  <span>
+   <table style='padding-left:120px;'>
+   <tr> <th colspan="2"><button>Edit profile info</button><br>&nbsp;</th> </tr>
+   <tr> <td><b>Email_ID:</b></td> <td id="td1">alicanlier@gmail.com</td> </tr>
+   <tr> <td><b>Birthdate:</b></td> <td id="td2">1980/1/1</td>  </tr>
+   <tr> <td><b>Gender:</b></td> <td id="td3">Male</td> </tr>
+   <tr> <td><b>Country:</b></td> <td id="td4">Turkey</td> </tr>
+   <tr> <td><b>City:</b></td> <td id="td5">Aksaray</td> </tr>
+   <tr> <td><b>Town:</b></td> <td id="td6">Kocpinar</td> </tr>
+   <tr> <td><b>Lives in:</b></td> <td id="td7">Korea/Daejeon</td> </tr>
+   </table>
+  </span>
+</div>
+
+<hr style="width:70%">
+
+<div>
+<table class="ancestors">
+<tr>
+<td><h3 >Grandparents (Father side)</h3></td>
+<td><h3 >Grandparents (Mother side)</h3></td>
+</tr>
+<tr>
+<td>
+   <span><b>Grandfather</b><p id="gf_f_name">Yusuf Canlier</p>
+   <img src="AvatarMale.png" id="gf_f" onclick="document.getElementById('filegf_f').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filegf_f" type="file" onchange="uploadPhoto(event, 'gf_f')" style="display: none;"/>
+   </span>
+   
+   <span><b>Grandmother</b><p id="gm_f_name">Done Canlier</p>
+   <img src="AvatarFemale.jpg" id="gm_f" onclick="document.getElementById('filegm_f').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filegm_f" type="file" onchange="uploadPhoto(event, 'gm_f')" style="display: none;"/>
+   </span>
+</td>
+<td>
+   <span><b>Grandfather</b><p id="gf_m_name">Mehmet Canlier</p>
+   <img src="AvatarMale.png" id="gf_m" onclick="document.getElementById('filegf_m').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filegf_m" type="file" onchange="uploadPhoto(event, 'gf_m')" style="display: none;"/>
+   </span>
+   
+   <span><b>Grandmother</b><p id="gm_m_name">Emine Canlier</p>
+   <img src="AvatarFemale.jpg" id="gm_m" onclick="document.getElementById('filegm_m').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filegm_m" type="file" onchange="uploadPhoto(event, 'gm_m')" style="display: none;"/>
+   </span>  	
+</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3 >Parents</h3></td>
+</tr>
+<tr>
+<td>
+   <span><b>Father</b><p id="fatherName">Oruc Canlier</p>
+   <img src="AvatarMale.png" id="father" onclick="document.getElementById('filefather').click();"
+   title="Click to upload&#10;new photo"/>
+   <input id="filefather" type="file" onchange="uploadPhoto(event, 'father')" style="display: none;"/>
+   </span>
+</td>
+<td>
+   <span><b>Mother</b><p id="motherName">Ummugulsum Canlier</p>
+   <img src="AvatarFemale.jpg" id="mother" onclick="document.getElementById('filemother').click();"
+   title="Click to upload&#10;new photo"/>
+   <input id="filemother" type="file" onchange="uploadPhoto(event, 'mother')" style="display: none;"/>
+   </span>
+</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3 >Self & Siblings</h3></td>
+</tr>
+<tr>
+<td colspan="2">
+   <span><b>Self</b><p id="selfName">Raul Lee</p>
+   <img src="AvatarMale.png" id="self" onclick="document.getElementById('filesib1').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filesib1" type="file" onchange="uploadPhoto(event, 'sib1')" style="display: none;"/>
+   </span>
+   
+   <span><b>Brother</b><p id="sib1Name">Mustafa Canlier</p>
+   <img src="AvatarMale.png" id="sib1" onclick="document.getElementById('filesib1').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filesib1" type="file" onchange="uploadPhoto(event, 'sib1')" style="display: none;"/>
+   </span>
+   
+   <span><b>Brother</b><p id="sib2Name">Yusuf Canlier</p>
+   <img src="AvatarMale.png" id="sib2" onclick="document.getElementById('filesib2').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filesib2" type="file" onchange="uploadPhoto(event, 'sib2')" style="display: none;"/>
+   </span>  
+</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3 >Spouse & Children</h3></td>
+</tr>
+<tr>
+<td colspan="2">
+   <span>
+   <b>Spouse</b><p id="spouseName">Anna</p>
+   <img src="AvatarFemale.jpg" id="spouse" onclick="document.getElementById('filespouse').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filespouse" type="file" onchange="uploadPhoto(event, 'spouse')" style="display: none;"/>
+   </span>
+   
+   <span>
+   <b>Child1</b><p id="child1Name">H. C.</p>
+   <img src="AvatarFemale.jpg" id="child1" onclick="document.getElementById('filechild1').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filechild1" type="file" onchange="uploadPhoto(event, 'child1')" style="display: none;"/>
+   </span>
+   
+   <span><b>Child2</b><p id="child2Name">L. C.</p>
+   <img src="AvatarFemale.jpg" id="child2" onclick="document.getElementById('child2').click();" 
+   title="Click to upload&#10;new photo"/>
+   <input id="filechild2" type="file" onchange="uploadPhoto(event, 'child2')" style="display: none;"/>
+   </span>   
+</td>
+</tr>
+
+</table>
+</div>
+
+
+<script>
+
+   gender="M";
+   function myPP() {
+	   if (gender=="M"){
+		   return "AvatarMale.png";
+	   }else {
+		   return "AvatarFemale.jpg";
+	   }
+		   
+   }
+   
+   function replacePhoto() {
+	   
+   }
+
+
+
+</script>
+
+
+</body>
+</html>

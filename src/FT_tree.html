@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Family Tree</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src='FT_database.js'>
+   function openTree(id) {
+	   document.getElementById('id').innerHTML = members[1][0];
+	   
+   }
+</script>
+
+<script>
+
+</script>
+
+
+<style>
+
+   .ancestors{
+    width:70%;
+    margin: auto;
+    text-align: center;
+    }
+    
+    .ancestors img {
+    width:110px;
+    height:120px;
+   }
+    
+    .ancestors span{
+    position: relative;
+    top: 0;
+    right: 0;
+    display:inline-block;
+    background-color: #98e7f5;
+    margin: auto;
+    padding: 5px;
+    }
+
+
+</style>
+
+</head>
+<body>
+
+<h1 style="text-align:center">Raul's Family Tree</h1>
+
+<table class="ancestors">
+<tr>
+<td><h3 >Grandparents (Father side)</h3></td>
+<td><h3 >Grandparents (Mother side)</h3></td>
+</tr>
+<tr>
+<td>
+   <span><b>Grandfather</b><br>Yusuf Canlier<br>
+   <img src="AvatarMale.png" id="gf_f" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+   
+   <span><b>Grandmother</b><br>Done Canlier<br>
+   <img src="AvatarFemale.jpg" id="gm_f" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+</td>
+<td>
+   <span><b>Grandfather</b><br>Mehmet Canlier<br>
+   <img src="AvatarMale.png" id="gf_m" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+   
+   <span><b>Grandmother</b><br>Emine Canlier<br>
+   <img src="AvatarFemale.jpg" id="gm_m" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3 >Parents</h3></td>
+</tr>
+<tr>
+<td>
+   <span><b>Father</b><br>Oruc Canlier<br>
+   <img src="AvatarMale.png" id="father" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+</td>
+<td>
+   <span><b>Mother</b><br>Ummugulsum Canlier<br>
+   <img src="AvatarFemale.jpg" id="mother" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3 >Self & Siblings</h3></td>
+</tr>
+<tr>
+<td colspan="2">
+   <span><b>Self</b><br>Raul Lee<br>
+   <img src="AvatarMale.png" id="sib1" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+   
+   <span><b>Brother</b><br>Yusuf Canlier<br>
+   <img src="AvatarMale.png" id="sib1" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+   
+   <span><b>Brother</b><br>Mustafa Canlier<br>
+   <img src="AvatarMale.png" id="sib2" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3 >Spouse & Children</h3></td>
+</tr>
+<tr>
+<td colspan="2">
+   <span>
+   <b>Spouse</b><br>Anna<br>
+   <img src="AvatarFemale.jpg" id="spouse" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>
+   
+   <span>
+   <b>Child1</b><br>H. C.<br>
+   <img src="AvatarFemale.jpg" id="child1" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>   
+   
+   <span><b>Child2</b><br>L. C.<br>
+   <img src="AvatarFemale.jpg" id="child2" onclick="openTree(this.id);" 
+   title="Click to see details"/>
+   </span>   
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>
